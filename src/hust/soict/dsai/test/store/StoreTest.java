@@ -1,33 +1,36 @@
 package hust.soict.dsai.test.store;
 
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.store.Store;
+
 public class StoreTest {
-	  public static void main(String[] args) {
-	      // Create a store
-	      Store store = new Store();
+    public static void main(String[] args) {
+        // Tạo cửa hàng
+        Store store = new Store();
 
-	      // Create some DVDs
-	      DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-	      DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 124, 24.95f);
-	      DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin", "Animation", 18.99f);
+        // Tạo các DVD
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 124, 24.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin", "Animation", "Ron Clements", 90, 18.99f); // sửa ở đây
 
-	      // Add DVDs to the store
-	      store.addDVD(dvd1);
-	      store.addDVD(dvd2);
-	      store.addDVD(dvd3);
+        // Thêm DVD vào cửa hàng
+        store.addDVD(dvd1);
+        store.addDVD(dvd2);
+        store.addDVD(dvd3);
 
-	      // Display store content...
-	      System.out.println("\nStore inventory after adding DVDs:");
-	      store.displayStore();
+        // Hiển thị nội dung cửa hàng
+        System.out.println("\nStore inventory after adding DVDs:");
+        store.displayStore();
 
-	      // Remove a DVD
-	      store.removeDVD(dvd2);
+        // Xóa một DVD khỏi cửa hàng
+        store.removeDVD(dvd2);
 
-	      // Display store content again
-	      System.out.println("\nStore inventory after removing a DVD:");
-	      store.displayStore();
+        // Hiển thị lại nội dung cửa hàng
+        System.out.println("\nStore inventory after removing a DVD:");
+        store.displayStore();
 
-	      // Attempt to remove a DVD not in the store
-	      DigitalVideoDisc dvdNotInStore = new DigitalVideoDisc("Frozen");
-	      store.removeDVD(dvdNotInStore);
-	  }
-	}
+        // Thử xóa DVD không tồn tại trong cửa hàng
+        DigitalVideoDisc dvdNotInStore = new DigitalVideoDisc("Frozen", "Animation", "Chris Buck", 102, 19.99f);
+        store.removeDVD(dvdNotInStore);
+    }
+}

@@ -1,75 +1,27 @@
 package hust.soict.dsai.aims.disc;
 
-public class DigitalVideoDisc {  
-    // Instance variables
+public class DigitalVideoDisc {
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
-
-    // Class variable to track the total number of DVDs created
     private static int nbDigitalVideoDiscs = 0;
-
-    // Instance variable to store unique ID for each DVD
     private int id;
 
-    // Getters
-    public String getTitle() {
-        return title;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getDirector() {
-        return director;
-    }
-
-    public int getLength() {
-        return length;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public float getCost() {
-        return cost;
-    }
-
+    // Getter for ID
     public int getId() {
         return id;
     }
 
-    public static int getNbDigitalVideoDiscs() {
-        return nbDigitalVideoDiscs;
+    // Method to match title
+    public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
     }
 
-    // Setters
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    // Constructors
+    // Constructor
     public DigitalVideoDisc(String title) {
         this.title = title;
-        incrementId();
-    }
-
-    public DigitalVideoDisc(String title, String category, float cost) {
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
-        incrementId();
-    }
-
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.cost = cost;
         incrementId();
     }
 
@@ -82,18 +34,24 @@ public class DigitalVideoDisc {
         incrementId();
     }
 
-    // Increment ID for each new DVD created
     private void incrementId() {
         nbDigitalVideoDiscs++;
         this.id = nbDigitalVideoDiscs;
     }
 
-    // Match title
-    public boolean isMatch(String title) {
-        return this.title.equalsIgnoreCase(title);
+    // Getter and Setter methods for other attributes
+    public String getTitle() {
+        return title;
     }
 
-    // toString method for easy representation of DVD
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
     @Override
     public String toString() {
         return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";

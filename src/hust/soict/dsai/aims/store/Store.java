@@ -1,53 +1,33 @@
 package hust.soict.dsai.aims.store;
 
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import java.util.ArrayList;
+
 public class Store {
-	  private static final int MAX_ITEMS_IN_STORE = 50; // Maximum number of DVDs in the store
-	  private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[MAX_ITEMS_IN_STORE];
-	  private int qtyInStore = 0;
+    private ArrayList<DigitalVideoDisc> dvdList = new ArrayList<>();
 
-	  // Add a DVD to the store
-	  public void addDVD(DigitalVideoDisc dvd) {
-	      if (qtyInStore < MAX_ITEMS_IN_STORE) {
-	          itemsInStore[qtyInStore] = dvd;
-	          qtyInStore++;
-	          System.out.println("The DVD \"" + dvd.getTitle() + "\" has been added to the store.");
-	      } else {
-	          System.out.println("The store is full. Cannot add more DVDs.");
-	      }
-	  }
+    // Thêm DVD vào cửa hàng
+    public void addDVD(DigitalVideoDisc dvd) {
+        dvdList.add(dvd);
+        System.out.println("The DVD \"" + dvd.getTitle() + "\" has been added to the store.");
+    }
 
-	  // Remove a DVD from the store
-	  public void removeDVD(DigitalVideoDisc dvd) {
-	      boolean found = false;
-	      for (int i = 0; i < qtyInStore; i++) {
-	          if (itemsInStore[i].equals(dvd)) {
-	              found = true;
+    // Xóa DVD khỏi cửa hàng
+    public void removeDVD(DigitalVideoDisc dvd) {
+        if (dvdList.contains(dvd)) {
+            dvdList.remove(dvd);
+            System.out.println("The DVD \"" + dvd.getTitle() + "\" has been removed from the store.");
+        } else {
+            System.out.println("The DVD \"" + dvd.getTitle() + "\" is not found in the store.");
+        }
+    }
 
-	              // Shift items to remove the gap
-	              for (int j = i; j < qtyInStore - 1; j++) {
-	                  itemsInStore[j] = itemsInStore[j + 1];
-	              }
-	              itemsInStore[qtyInStore - 1] = null;
-	              qtyInStore--;
-	              System.out.println("The DVD \"" + dvd.getTitle() + "\" has been removed from the store.");
-	              break;
-	          }
-	      }
-	      if (!found) {
-	          System.out.println("The DVD \"" + dvd.getTitle() + "\" was not found in the store.");
-	      }
-	  }
-
-	  // Display the DVDs in the store
-	  public void displayStore() {
-	      System.out.println("***********************STORE***********************");
-	      if (qtyInStore == 0) {
-	          System.out.println("The store is currently empty.");
-	      } else {
-	          for (int i = 0; i < qtyInStore; i++) {
-	              System.out.println((i + 1) + ". " + itemsInStore[i]);
-	          }
-	      }
-	      System.out.println("***************************************************");
-	  }
-	}
+    // Hiển thị danh sách DVD trong cửa hàng
+    public void displayStore() {
+        System.out.println("************** STORE INVENTORY **************");
+        for (DigitalVideoDisc dvd : dvdList) {
+            System.out.println(dvd);
+        }
+        System.out.println("**********************************************");
+    }
+}
