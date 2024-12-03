@@ -11,10 +11,13 @@ public class TestPassingParameter {
 
       swap(jungleDVD, cinderellaDVD);
 
-
       System.out.println("\nAfter swap:");
       System.out.println("jungle dvd title: " + jungleDVD.getTitle());
       System.out.println("cinderella dvd title: " + cinderellaDVD.getTitle());
+
+
+      changeTitle(jungleDVD, cinderellaDVD.getTitle());
+
 
 
       changeTitle(jungleDVD, cinderellaDVD.getTitle());
@@ -30,10 +33,17 @@ public class TestPassingParameter {
       dvd1.setTitle(dvd2.getTitle());
       dvd2.setTitle(tmpTitle);
   }
-//bai2
+
+
   public static void changeTitle(DigitalVideoDisc dvd, String title) {
       dvd.setTitle(title); 
   }
 }
+
+  public static void changeTitle(DigitalVideoDisc dvd, String title) {
+      dvd.setTitle(title); 
+  }
+}
+
 
 
