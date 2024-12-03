@@ -27,7 +27,7 @@ public class NoGarbage {
                 content.append((char) b); // Sử dụng StringBuilder để nối chuỗi.
             }
             System.out.println("Time with StringBuilder: " + (System.currentTimeMillis() - start) + " ms");
-//hihi
+//hihihihi
         } catch (IOException e) {
             e.printStackTrace();
         }
