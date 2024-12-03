@@ -1,4 +1,7 @@
+<<<<<<< HEAD:src/hust/soict/dsai/aims/disc/DigitalVideoDisc.java
 package hust.soict.dsai.aims.disc;
+=======
+>>>>>>> ea6ad47a86471409eb004b4cb59e8d9471397906:src/DigitalVideoDisc.java
 public class DigitalVideoDisc {  
     // Instance variables
     private String title;
@@ -30,6 +33,13 @@ public class DigitalVideoDisc {
         return length;
     }
 
+<<<<<<< HEAD:src/hust/soict/dsai/aims/disc/DigitalVideoDisc.java
+=======
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+>>>>>>> ea6ad47a86471409eb004b4cb59e8d9471397906:src/DigitalVideoDisc.java
     public float getCost() {
         return cost;
     }
