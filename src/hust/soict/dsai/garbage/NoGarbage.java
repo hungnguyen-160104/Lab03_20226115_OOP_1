@@ -6,12 +6,25 @@ import java.io.IOException;
 
 public class NoGarbage {
     public static void main(String[] args) {
-        try {
-            File file = new File("path/to/your/large-text-file.txt"); // Đổi đường dẫn file lớn.
-            FileInputStream fis = new FileInputStream(file);
+        // Thay đường dẫn này bằng đường dẫn chính xác tới file của bạn
+        String filePath = "C:\\Users\\YourUsername\\Documents\\large-text-file.txt";
+
+        File file = new File(filePath);
+        
+        byte[] data = new byte[1000000]; // 1 triệu ký tự
+        for (int i = 0; i < data.length; i++) {
+            data[i] = 'A'; // Gán tất cả là ký tự 'A'
+        }
+
+        // Kiểm tra xem file có tồn tại không
+        if (!file.exists()) {
+            System.out.println("File not found: " + filePath);
+            return;
+        }
+
+        try (FileInputStream fis = new FileInputStream(file)) {
             byte[] data = new byte[(int) file.length()];
             fis.read(data);
-            fis.close();
 
             StringBuilder content = new StringBuilder();
             long start = System.currentTimeMillis();
